@@ -29,6 +29,14 @@ fish_data =  np.column_stack((fish_length,fish_weight))
 #print(smelt_length.shape)
 
 fish_target = np.concatenate((np.ones(35),np.zeros(14)))
-print(fish_target)
+#print(fish_target)
 
- 
+#7. 데이터 셔플(샘플 편향 막아내기) 
+
+indexs = np.arange(49)
+np.random.shuffle(indexs)
+#print(indexs)
+fish_data = fish_data[indexs]
+fish_target = fish_target[indexs]
+#print(fish_data)
+print(fish_target)
