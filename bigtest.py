@@ -49,7 +49,17 @@ test_target= fish_target[39:]
 
 #9.훈련데이터 시각화하세요
 plt.scatter(train_data[:,0],train_data[:,1])
-plt.show()
+#plt.show()
 
+#10.데이터를 판다스로 변경하기
 
+##train
+train_target = train_target.reshape(2,-1)
+train = np.hstack((train_data,train_target))
+print(train)
+
+#train_dataFrame = pd.DataFrame()
+
+#print(train_data)
+#print(train_target)
 
