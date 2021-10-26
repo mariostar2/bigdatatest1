@@ -40,3 +40,9 @@ fish_data = fish_data[indexs]
 fish_target = fish_target[indexs]
 #print(fish_data)
 print(fish_target)
+
+#8. 훈련데이터와 테스트 데이터로 나누기 (8:2)
+train_data = fish_data[:39]
+train_target =fish_target[:39]
+test_data = fish_data[39:]
+test_target= fish_target[39:]
