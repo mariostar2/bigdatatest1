@@ -46,3 +46,10 @@ train_data = fish_data[:39]
 train_target =fish_target[:39]
 test_data = fish_data[39:]
 test_target= fish_target[39:]
+
+#9.훈련데이터 시각화하세요
+plt.scatter(train_data[:,0],train_data[:,1])
+plt.show()
+
+
+
