@@ -51,15 +51,30 @@ test_target= fish_target[39:]
 plt.scatter(train_data[:,0],train_data[:,1])
 #plt.show()
 
-#10.데이터를 판다스로 변경하기
+#10.데이터를 판다스로 변경하기(train,test)
 
-##train
-train_target = train_target.reshape(2,-1)
+#(1)트레인데이터
+print(train_target.shape)
+train_target = train_target.reshape(39,1)
+
 train = np.hstack((train_data,train_target))
-print(train)
+
+train_dataFrame =pd.DataFrame(train,columns=["train_length","train_weight","train_target"])
+print(train_dataFrame)
+
+#(2) 테스트데이터
+train_target = train_target.reshape(10,1)
+test = np.hstack((test_data,test_target))
+test_dataFrame =pd.DataFrame(test,columns=["test_length","test_weight","test_target"])
+print(train_dataFrame)
 
 #train_dataFrame = pd.DataFrame()
-
+#print(train_data.shape)
 #print(train_data)
 #print(train_target)
+
+#11. 데이터 넣기 (insert) 
+engine = db.create_engine("mariadb+mariadbconnector://python:python1234@127.0.0.1:3306/pythondb")
+train_dataFrame.to_sql("train",engine, index=False,if_exists="replace")
+test_dataFrame.to_sql("test",engine, index=False,if_exists="replace")
 
